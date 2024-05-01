@@ -4,11 +4,14 @@
     </div>
 </div>
 
-<!-- @for (std of studentObj; track std.id;let index=$index;let count=$count;
-    let first=$first;let last=$last){
+<!--
+    @for requires tracking function otherwise it will throw error. 
+    
+    @for (std of studentObj; track std.id;let index=$index;let count=$count;
+    let first=$first;let last=$last;let even=$even;let odd=$odd){
     <h2>{{index}}</h2>
     <h2>{{count}}</h2>
-    <p>std.name</p>
+    <p [class.is-first]>std.name</p>
     @empty{
         <h3>No student found!</h3>
     }
