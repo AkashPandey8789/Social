@@ -1,0 +1,25 @@
+<div class="main-div">
+    <form [formGroup]="form" class="form-content" (ngSubmit)="loginFunc()">
+        <small *ngIf="form.getError('wrongCred')">Wrong Credentials!!</small>
+        <div class="controls row">
+            <label class="col-sm-4">User Name:</label>
+            <div class="col-sm-6">
+                <input class="form-control " type="text" formControlName="username">
+                <small *ngIf="username?.touched && !username?.valid">Username is required!</small>
+            </div>
+        </div>
+        <div class="row controls">
+            <label class="col-sm-4">Password :</label>
+            <div class="col-sm-6">
+<input class="form-control" type="password" formControlName="password">
+            </div>
+            
+        </div>
+        <div>
+            <button class="loginBtn">Login</button>
+        </div>
+    </form>
+    <a [routerLink]="['/register']">Not a user. Register Now!!</a>
+</div>
+
+{{form.value|json}}
