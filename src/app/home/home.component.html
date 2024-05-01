@@ -5,7 +5,14 @@
         [style.text-decoration]="'underline'"></app-course-card>
     </div>
 </div>
+<div *ngFor="let n of oddEvenNumbers">
+    <span [ngSwitch]="n">
+        <p *ngSwitchCase=2>Even</p>
+        <p *ngSwitchCase="5">Odd</p>
+        <p *ngSwitchDefault>Default</p>
+    </span>
 
+</div>
 <!--
     @for requires tracking function otherwise it will throw error.
     we can create custom tracking function.
@@ -40,4 +47,17 @@
 }
 ngClass can take string,array,object or expression as value.
 ngStyle helps in adding multiple styles , we can also pass expression.
+
+@switch ->
+@switch(category){
+    @case("categoryA"){
+        code
+    }
+    @case("categoryB"){
+        code
+    }
+    @default{
+        code
+    }
+}
  -->
