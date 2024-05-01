@@ -21,5 +21,8 @@ export class HomeComponent implements OnInit {
   titleDescription:string[]=['Angular detailed course','Python detailed course','Java detailed course'];
   courseCardList:Coursescard[]=[
   ]
-  
+  eventCatcher(courseTitle:string){
+    console.log('Parent ',courseTitle);
+    
+  }
 }

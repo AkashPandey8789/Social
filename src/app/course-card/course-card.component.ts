@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output ,EventEmitter} from '@angular/core';
+// import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-course-card',
@@ -11,9 +12,15 @@ export class CourseCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  @Input() imageUrl:string="https://angular.io/assets/images/logos/angular/angular.png";
+  @Input() 
+  imageUrl:string="https://angular.io/assets/images/logos/angular/angular.png";
   @Input() titleText:string='Angular Course';
   @Input() titleDescription:string='A detailed walk through for angular ';
 
+  @Output() eventSelector=new EventEmitter();
+  cardClicked(title:string|null){
+    console.log(title);
+    this.eventSelector.emit(title);
+  }
 
 }

@@ -1,7 +1,7 @@
-<div class="card" style="width: 18rem; margin: auto;align-content: center;">
+<div class="card row col-md-3" style="width: 18rem;" (click)="cardClicked(titleContent.textContent)">
     <img [src]="imageUrl" class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title" [textContent]="titleText"></h5>
+        <h5 class="card-title" #titleContent [textContent]="titleText"></h5>
         <p class="card-text" [textContent]="titleDescription"></p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>

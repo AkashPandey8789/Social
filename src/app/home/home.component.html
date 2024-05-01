@@ -1,3 +1,5 @@
-<div *ngFor="let c of courseCardList">
-    <app-course-card [imageUrl]="c.imageUrl" [titleText]="c.title" [titleDescription]="c.description"></app-course-card>
+<div class="row">
+    <div *ngFor="let c of courseCardList" class=" col-md-3">
+        <app-course-card [imageUrl]="c.imageUrl" [titleText]="c.title" [titleDescription]="c.description" (eventSelector)="eventCatcher($event)"></app-course-card>
+    </div>
 </div>
