@@ -25,4 +25,15 @@ export class HomeComponent implements OnInit {
     console.log('Parent ',courseTitle);
     
   }
+  
+  studentObj=[{
+    id:1,
+    name:'king'
+  },
+  {
+    id:2,
+    name:'Chand'
+  },
+]
+
 }
