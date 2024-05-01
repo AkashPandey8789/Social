@@ -16,7 +16,7 @@ export class CourseCardComponent implements OnInit {
   imageUrl:string="https://angular.io/assets/images/logos/angular/angular.png";
   @Input() titleText:string='Angular Course';
   @Input() titleDescription:string='A detailed walk through for angular ';
-
+  @Input() cardIndex:Number=0;
   @Output() eventSelector=new EventEmitter();
   cardClicked(title:string|null){
     console.log(title);

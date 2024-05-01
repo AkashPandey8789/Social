@@ -1,11 +1,18 @@
 <div class="row">
-    <div *ngFor="let c of courseCardList" class=" col-md-3">
-        <app-course-card [imageUrl]="c.imageUrl" [titleText]="c.title" [titleDescription]="c.description" (eventSelector)="eventCatcher($event)"></app-course-card>
+    <div *ngFor="let c of courseCardList;index as i;even as IsEven;odd as IsOdd;first as IsFirst;last as IsLast" class=" col-md-3">
+        <app-course-card [imageUrl]="c.imageUrl" [cardIndex]="i+1" [titleText]="c.title" [titleDescription]="c.description" (eventSelector)="eventCatcher($event)"></app-course-card>
     </div>
 </div>
 
 <!--
-    @for requires tracking function otherwise it will throw error. 
+    @for requires tracking function otherwise it will throw error.
+    we can create custom tracking function.
+    trackCourse(index:number,course:Course){
+        return course.id;
+    } 
+    @for(std of studentObj;track trackCourse){
+
+    }
     
     @for (std of studentObj; track std.id;let index=$index;let count=$count;
     let first=$first;let last=$last;let even=$even;let odd=$odd){
@@ -16,3 +23,5 @@
         <h3>No student found!</h3>
     }
 } -->
+
+<!-- @if -->
