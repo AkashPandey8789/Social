@@ -4,6 +4,12 @@
     </div>
 </div>
 
-<!-- @for (std of studentObj; track std.id){
+<!-- @for (std of studentObj; track std.id;let index=$index;let count=$count;
+    let first=$first;let last=$last){
+    <h2>{{index}}</h2>
+    <h2>{{count}}</h2>
     <p>std.name</p>
+    @empty{
+        <h3>No student found!</h3>
+    }
 } -->
