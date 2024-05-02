@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output ,EventEmitter, ContentChild, AfterViewInit, ContentChildren, AfterContentInit} from '@angular/core';
+import { Component, Input, OnInit, Output ,EventEmitter, ContentChild, AfterViewInit, ContentChildren, AfterContentInit, TemplateRef} from '@angular/core';
 import { ContentcompComponent } from '../contentcomp/contentcomp.component';
 // import { EventEmitter } from 'stream';
 
@@ -13,6 +13,8 @@ export class CourseCardComponent implements OnInit,AfterViewInit,AfterContentIni
 
   ngOnInit(): void {
   }
+  @Input()
+  templateInput:TemplateRef<any>;
   @Input() 
   imageUrl:string="https://angular.io/assets/images/logos/angular/angular.png";
   @Input() titleText:string='Angular Course';

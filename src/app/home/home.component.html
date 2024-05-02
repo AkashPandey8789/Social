@@ -2,7 +2,7 @@
     <div *ngFor="let c of courseCardList;index as i;even as IsEven;odd as IsOdd;first as IsFirst;last as IsLast" class=" col-md-3">
         <app-course-card [imageUrl]="c.imageUrl" [cardIndex]="i+1" [titleText]="c.title" [ngClass]="{'beginner':IsEven}" [titleDescription]="c.description" (eventSelector)="eventCatcher($event)"
         [ngStyle]="{'font-family':'monospace'}" 
-        [style.text-decoration]="'underline'" #courseCardRef>
+        [style.text-decoration]="'underline'" #courseCardRef [templateInput]="textTemplate">
         <p class="moreDescription" #moreDes>Some more description about the course from parent...</p>
         <app-contentcomp></app-contentcomp>
     </app-course-card>
@@ -22,9 +22,6 @@
     <p>{{templateText}}</p>
 </ng-template>
 
-<div *ngTemplateOutlet="textTemplate; context:{textDes:'some random text'}">
-
-</div>
 <!--
     @for requires tracking function otherwise it will throw error.
     we can create custom tracking function.

@@ -8,4 +8,5 @@
     </div>
     <ng-content select=".moreDescription"></ng-content>
     <ng-content select="app-contentcomp"></ng-content>
+    <ng-container *ngTemplateOutlet="templateInput;context:{textDes:'some random text'}"></ng-container>
 </div>
