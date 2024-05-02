@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output ,EventEmitter, ContentChild, AfterViewInit} from '@angular/core';
+import { Component, Input, OnInit, Output ,EventEmitter, ContentChild, AfterViewInit, ContentChildren, AfterContentInit} from '@angular/core';
 import { ContentcompComponent } from '../contentcomp/contentcomp.component';
 // import { EventEmitter } from 'stream';
 
@@ -7,7 +7,7 @@ import { ContentcompComponent } from '../contentcomp/contentcomp.component';
   templateUrl: './course-card.component.html',
   styleUrls: ['./course-card.component.css']
 })
-export class CourseCardComponent implements OnInit,AfterViewInit {
+export class CourseCardComponent implements OnInit,AfterViewInit,AfterContentInit {
 
   constructor() { }
 
@@ -31,8 +31,14 @@ export class CourseCardComponent implements OnInit,AfterViewInit {
   @ContentChild(ContentcompComponent)
   contentComp:ContentcompComponent|undefined;
 
+  @ContentChildren(ContentcompComponent)
+  contentCompQuery:any;
   ngAfterViewInit(): void {
     console.log(this.moreDescriptionPara);
     console.log('COntent comp',this.contentComp);
+  }
+
+  ngAfterContentInit(): void {        /*this is the method where we can get the projected component earliest. */
+    console.log('content projected',this.contentCompQuery);
   }
 }
