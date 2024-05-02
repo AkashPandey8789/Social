@@ -4,6 +4,7 @@
         [ngStyle]="{'font-family':'monospace'}" 
         [style.text-decoration]="'underline'" #courseCardRef></app-course-card>
     </div>
+    <div><button class="btn-primary" (click)="addCourse()">Add Course</button></div>
 </div>
 <div *ngFor="let n of oddEvenNumbers">
     <span [ngSwitch]="n">

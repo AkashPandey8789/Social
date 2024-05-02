@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Coursescard } from '../coursescard';
 import { CourseCardComponent } from '../course-card/course-card.component';
 
@@ -45,6 +45,8 @@ containerDiv:ElementRef | undefined;
 @ViewChild('cardContainer',{read:ElementRef}) //it will return elementref and not component instance.
 containerDivRef:ElementRef|undefined;
 
+@ViewChildren(CourseCardComponent)
+cards:QueryList<CourseCardComponent>|undefined;
 
 eventCatcher(courseTitle:string){
     console.log('Parent ',courseTitle);
@@ -54,5 +56,12 @@ eventCatcher(courseTitle:string){
   }
   ngAfterViewInit(): void {  //this is the first method executed by angular once all the child views are loaded.
     console.log('ngAfterViewInit',this.containerDivRef);
+    this.cards?.changes.subscribe(
+      c=>console.log('New Course',c)
+    );
+  }
+
+  addCourse(){
+    this.courseCardList.push(new Coursescard('F:/Angular Practice/Social/src/assets/c-sharp.png',"C# Tutorial","C# beginner to advance course"));
   }
 }
