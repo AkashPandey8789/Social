@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Coursescard } from '../coursescard';
 import { CourseCardComponent } from '../course-card/course-card.component';
 
@@ -39,8 +39,15 @@ myDate=new Date(2000,7,28);
 @ViewChild('courseCardRef')  /*ViewChild returns the first match of the child element ,we can also pass template reference variable.*/
 courseCard:CourseCardComponent=new CourseCardComponent();
 
+@ViewChild('cardContainer')
+containerDiv:ElementRef | undefined;
+
+@ViewChild('cardContainer',{read:ElementRef}) //it will return elementref and not component instance.
+containerDivRef:ElementRef|undefined;
 eventCatcher(courseTitle:string){
     console.log('Parent ',courseTitle);
     console.log('Children',this.courseCard);
+    console.log('ElementRef',this.containerDiv);
+    console.log('ElementRef of div',this.containerDivRef);
   }
 }

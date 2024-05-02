@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" #cardContainer>
     <div *ngFor="let c of courseCardList;index as i;even as IsEven;odd as IsOdd;first as IsFirst;last as IsLast" class=" col-md-3">
         <app-course-card [imageUrl]="c.imageUrl" [cardIndex]="i+1" [titleText]="c.title" [ngClass]="{'beginner':IsEven}" [titleDescription]="c.description" (eventSelector)="eventCatcher($event)"
         [ngStyle]="{'font-family':'monospace'}" 
