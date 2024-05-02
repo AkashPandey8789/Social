@@ -45,8 +45,8 @@ containerDiv:ElementRef | undefined;
 @ViewChild('cardContainer',{read:ElementRef}) //it will return elementref and not component instance.
 containerDivRef:ElementRef|undefined;
 
-@ViewChildren(CourseCardComponent)
-cards:QueryList<CourseCardComponent>|undefined;
+@ViewChildren(CourseCardComponent,{read:ElementRef})
+cards:QueryList<ElementRef>|undefined;
 
 eventCatcher(courseTitle:string){
     console.log('Parent ',courseTitle);

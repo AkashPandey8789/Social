@@ -2,7 +2,9 @@
     <div *ngFor="let c of courseCardList;index as i;even as IsEven;odd as IsOdd;first as IsFirst;last as IsLast" class=" col-md-3">
         <app-course-card [imageUrl]="c.imageUrl" [cardIndex]="i+1" [titleText]="c.title" [ngClass]="{'beginner':IsEven}" [titleDescription]="c.description" (eventSelector)="eventCatcher($event)"
         [ngStyle]="{'font-family':'monospace'}" 
-        [style.text-decoration]="'underline'" #courseCardRef></app-course-card>
+        [style.text-decoration]="'underline'" #courseCardRef>
+        <p class="moreDescription">Some more description about the course from parent...</p>
+    </app-course-card>
     </div>
     <div><button class="btn-primary" (click)="addCourse()">Add Course</button></div>
 </div>
@@ -62,4 +64,10 @@ ngStyle helps in adding multiple styles , we can also pass expression.
         code
     }
 }
+content projection we can display some part of child component from parent component
+<ng-content select=".header"></ng-content>
+//below code in parent comp
+<div class="header">
+    some code
+    </div
  -->
