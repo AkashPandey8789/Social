@@ -18,6 +18,13 @@
 
 </div>
 <p>{{myDate|date}}</p>
+<ng-template #textTemplate let-templateText="textDes">
+    <p>{{templateText}}</p>
+</ng-template>
+
+<div *ngTemplateOutlet="textTemplate; context:{textDes:'some random text'}">
+
+</div>
 <!--
     @for requires tracking function otherwise it will throw error.
     we can create custom tracking function.
