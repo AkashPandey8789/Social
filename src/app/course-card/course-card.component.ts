@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, Output ,EventEmitter} from '@angular/core';
+import { Component, Input, OnInit, Output ,EventEmitter, ContentChild, AfterViewInit} from '@angular/core';
+import { ContentcompComponent } from '../contentcomp/contentcomp.component';
 // import { EventEmitter } from 'stream';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, Input, OnInit, Output ,EventEmitter} from '@angular/core';
   templateUrl: './course-card.component.html',
   styleUrls: ['./course-card.component.css']
 })
-export class CourseCardComponent implements OnInit {
+export class CourseCardComponent implements OnInit,AfterViewInit {
 
   constructor() { }
 
@@ -23,4 +24,15 @@ export class CourseCardComponent implements OnInit {
     this.eventSelector.emit(title);
   }
 
+
+  @ContentChild('moreDes')  /*it is used to ref content child only */
+  moreDescriptionPara:any;
+
+  @ContentChild(ContentcompComponent)
+  contentComp:ContentcompComponent|undefined;
+
+  ngAfterViewInit(): void {
+    console.log(this.moreDescriptionPara);
+    console.log('COntent comp',this.contentComp);
+  }
 }

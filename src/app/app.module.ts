@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { CourseCardComponent } from './course-card/course-card.component';
+import { ContentcompComponent } from './contentcomp/contentcomp.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CourseCardComponent } from './course-card/course-card.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    CourseCardComponent
+    CourseCardComponent,
+    ContentcompComponent
   ],
   imports: [
     BrowserModule,

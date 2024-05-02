@@ -3,7 +3,8 @@
         <app-course-card [imageUrl]="c.imageUrl" [cardIndex]="i+1" [titleText]="c.title" [ngClass]="{'beginner':IsEven}" [titleDescription]="c.description" (eventSelector)="eventCatcher($event)"
         [ngStyle]="{'font-family':'monospace'}" 
         [style.text-decoration]="'underline'" #courseCardRef>
-        <p class="moreDescription">Some more description about the course from parent...</p>
+        <p class="moreDescription" #moreDes>Some more description about the course from parent...</p>
+        <app-contentcomp></app-contentcomp>
     </app-course-card>
     </div>
     <div><button class="btn-primary" (click)="addCourse()">Add Course</button></div>
