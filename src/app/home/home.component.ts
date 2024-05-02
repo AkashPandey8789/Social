@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Coursescard } from '../coursescard';
 import { CourseCardComponent } from '../course-card/course-card.component';
 
@@ -7,7 +7,7 @@ import { CourseCardComponent } from '../course-card/course-card.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,AfterViewInit {
 
   constructor() {
     for(let i=0;i<this.imageUrls.length;i++){
@@ -44,10 +44,15 @@ containerDiv:ElementRef | undefined;
 
 @ViewChild('cardContainer',{read:ElementRef}) //it will return elementref and not component instance.
 containerDivRef:ElementRef|undefined;
+
+
 eventCatcher(courseTitle:string){
     console.log('Parent ',courseTitle);
     console.log('Children',this.courseCard);
     console.log('ElementRef',this.containerDiv);
     console.log('ElementRef of div',this.containerDivRef);
+  }
+  ngAfterViewInit(): void {  //this is the first method executed by angular once all the child views are loaded.
+    console.log('ngAfterViewInit',this.containerDivRef);
   }
 }
