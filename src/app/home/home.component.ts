@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
 oddEvenNumbers:Number[]=[1,2,3,4,5,6,7,8];
 myDate=new Date(2000,7,28);
-@ViewChild(CourseCardComponent)  /*ViewChild returns the first match of the child element */
+@ViewChild('courseCardRef')  /*ViewChild returns the first match of the child element ,we can also pass template reference variable.*/
 courseCard:CourseCardComponent=new CourseCardComponent();
 
 eventCatcher(courseTitle:string){
